@@ -3,9 +3,9 @@ namespace DrugTrade.Data.Models
 {
     using System;
     using System.Collections.Generic;
-
+    using System.ComponentModel.DataAnnotations;
     using DrugTrade.Data.Common.Models;
-
+    using DrugTradeAPI.Models;
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
@@ -16,6 +16,7 @@ namespace DrugTrade.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Pharmacies = new HashSet<Pharmacy>();
         }
 
         // Audit info
@@ -33,5 +34,33 @@ namespace DrugTrade.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public int Age { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        public byte[] ProfileImage { get; set; }
+
+        public IEnumerable<Pharmacy> Pharmacies;
     }
 }

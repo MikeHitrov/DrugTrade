@@ -1,7 +1,7 @@
-﻿namespace AspNetCoreTemplate.Web.Areas.Administration.Controllers
+﻿namespace DrugTrade.Web.Areas.Administration.Controllers
 {
-    using AspNetCoreTemplate.Common;
-    using AspNetCoreTemplate.Web.Controllers;
+    using DrugTrade.Common;
+    using DrugTrade.Web.Controllers;
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;

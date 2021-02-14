@@ -1,17 +1,16 @@
-﻿namespace AspNetCoreTemplate.Web
+﻿namespace DrugTrade.Web
 {
     using System.Reflection;
 
-    using AspNetCoreTemplate.Data;
-    using AspNetCoreTemplate.Data.Common;
-    using AspNetCoreTemplate.Data.Common.Repositories;
-    using AspNetCoreTemplate.Data.Models;
-    using AspNetCoreTemplate.Data.Repositories;
-    using AspNetCoreTemplate.Data.Seeding;
-    using AspNetCoreTemplate.Services.Data;
-    using AspNetCoreTemplate.Services.Mapping;
-    using AspNetCoreTemplate.Services.Messaging;
-    using AspNetCoreTemplate.Web.ViewModels;
+    using DrugTrade.Data;
+    using DrugTrade.Data.Common;
+    using DrugTrade.Data.Common.Repositories;
+    using DrugTrade.Data.Models;
+    using DrugTrade.Data.Repositories;
+    using DrugTrade.Data.Seeding;
+    using DrugTrade.Services.Mapping;
+    using DrugTrade.Services.Messaging;
+    using DrugTrade.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -64,7 +63,6 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,4 @@
-﻿namespace AspNetCoreTemplate.Web.Controllers
+﻿namespace DrugTrade.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
 

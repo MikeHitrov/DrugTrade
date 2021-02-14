@@ -1,4 +1,4 @@
-﻿namespace AspNetCoreTemplate.Web.Tests
+﻿namespace DrugTrade.Web.Tests
 {
     using System.Net;
     using System.Threading.Tasks;

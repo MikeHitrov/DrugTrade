@@ -1,8 +1,8 @@
-﻿namespace AspNetCoreTemplate.Web.Controllers
+﻿namespace DrugTrade.Web.Controllers
 {
     using System.Diagnostics;
 
-    using AspNetCoreTemplate.Web.ViewModels;
+    using DrugTrade.Web.ViewModels;
 
     using Microsoft.AspNetCore.Mvc;
 

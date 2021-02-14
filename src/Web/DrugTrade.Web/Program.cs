@@ -1,4 +1,4 @@
-﻿namespace AspNetCoreTemplate.Web
+﻿namespace DrugTrade.Web
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;

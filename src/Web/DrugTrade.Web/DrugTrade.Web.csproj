@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>aspnet-AspNetCoreTemplate-BBB373B5-EF3F-4DBB-B8AA-7152CEC275BF</UserSecretsId>
+    <UserSecretsId>aspnet-DrugTrade-BBB373B5-EF3F-4DBB-B8AA-7152CEC275BF</UserSecretsId>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
@@ -26,14 +26,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AspNetCoreTemplate.Common\AspNetCoreTemplate.Common.csproj" />
-    <ProjectReference Include="..\..\Data\AspNetCoreTemplate.Data.Models\AspNetCoreTemplate.Data.Models.csproj" />
-    <ProjectReference Include="..\..\Data\AspNetCoreTemplate.Data\AspNetCoreTemplate.Data.csproj" />
-    <ProjectReference Include="..\..\Services\AspNetCoreTemplate.Services.Data\AspNetCoreTemplate.Services.Data.csproj" />
-    <ProjectReference Include="..\..\Services\AspNetCoreTemplate.Services.Mapping\AspNetCoreTemplate.Services.Mapping.csproj" />
-    <ProjectReference Include="..\..\Services\AspNetCoreTemplate.Services.Messaging\AspNetCoreTemplate.Services.Messaging.csproj" />
-    <ProjectReference Include="..\..\Services\AspNetCoreTemplate.Services\AspNetCoreTemplate.Services.csproj" />
-    <ProjectReference Include="..\AspNetCoreTemplate.Web.Infrastructure\AspNetCoreTemplate.Web.Infrastructure.csproj" />
-    <ProjectReference Include="..\AspNetCoreTemplate.Web.ViewModels\AspNetCoreTemplate.Web.ViewModels.csproj" />
+    <ProjectReference Include="..\..\DrugTrade.Common\DrugTrade.Common.csproj" />
+    <ProjectReference Include="..\..\Data\DrugTrade.Data.Models\DrugTrade.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\DrugTrade.Data\DrugTrade.Data.csproj" />
+    <ProjectReference Include="..\..\Services\DrugTrade.Services.Data\DrugTrade.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Services\DrugTrade.Services.Mapping\DrugTrade.Services.Mapping.csproj" />
+    <ProjectReference Include="..\..\Services\DrugTrade.Services.Messaging\DrugTrade.Services.Messaging.csproj" />
+    <ProjectReference Include="..\..\Services\DrugTrade.Services\DrugTrade.Services.csproj" />
+    <ProjectReference Include="..\DrugTrade.Web.Infrastructure\DrugTrade.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\DrugTrade.Web.ViewModels\DrugTrade.Web.ViewModels.csproj" />
   </ItemGroup>
 </Project>

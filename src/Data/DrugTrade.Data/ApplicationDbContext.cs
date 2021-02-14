@@ -8,7 +8,7 @@
 
     using DrugTrade.Data.Common.Models;
     using DrugTrade.Data.Models;
-
+    using DrugTradeAPI.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
@@ -24,7 +24,11 @@
         {
         }
 
-        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Pharmacy> Pharmacies { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
