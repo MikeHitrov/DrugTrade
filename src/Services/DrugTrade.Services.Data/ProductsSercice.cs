@@ -9,14 +9,12 @@ using System.Threading.Tasks;
 
 namespace DrugTrade.Services.Data
 {
-    class ProductsSercice : IProductsService
+    public class ProductsSercice : IProductsService
     {
-        private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
         private readonly IDeletableEntityRepository<Product> productsRepository;
 
-        public ProductsSercice(IDeletableEntityRepository<ApplicationUser> usersRepository, IDeletableEntityRepository<Product> productsRepository)
+        public ProductsSercice(IDeletableEntityRepository<Product> productsRepository)
         {
-            this.usersRepository = usersRepository;
             this.productsRepository = productsRepository;
         }
 

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DrugTrade.Services.Data
 {
-    class UsersService : IUsersService
+    public class UsersService : IUsersService
     {
         private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
         private readonly IDeletableEntityRepository<Pharmacy> phrmaciesRepository;

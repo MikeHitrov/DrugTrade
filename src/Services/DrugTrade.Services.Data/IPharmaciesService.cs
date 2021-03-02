@@ -16,5 +16,7 @@ namespace DrugTrade.Services.Data
         void Delete(string id);
 
         Task AddAsync(string name, string address, string contactNumber, byte[] profileImage, string ownerId, ApplicationUser owner);
+
+        Task AddProductAsync(Product product, string pharmacyId);
     }
 }
