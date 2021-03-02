@@ -1,4 +1,5 @@
-﻿using DrugTrade.Data.Models;
+﻿using DrugTrade.Data.Common.Models;
+using DrugTrade.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DrugTradeAPI.Models
 {
-    public class Order
+    public class Order : IDeletableEntity
     {
         public Order()
         {
@@ -34,5 +35,7 @@ namespace DrugTradeAPI.Models
         public IEnumerable<Product> Products { get; set; }
 
         public  DateTime DateCreated { get; set; }
+        public bool IsDeleted { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DateTime? DeletedOn { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

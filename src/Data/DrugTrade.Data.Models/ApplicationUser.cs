@@ -35,29 +35,6 @@ namespace DrugTrade.Data.Models
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
-        [Required]
-        public string Password { get; set; }
-
-        [Required]
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
-
-        [Required]
-        public string PhoneNumber { get; set; }
-
-        [Required]
-        public string Email { get; set; }
-
-        [Required]
-        public int Age { get; set; }
-
-        [Required]
-        public string Address { get; set; }
-
-        public byte[] ProfileImage { get; set; }
-
         public IEnumerable<Pharmacy> Pharmacies;
     }
 }

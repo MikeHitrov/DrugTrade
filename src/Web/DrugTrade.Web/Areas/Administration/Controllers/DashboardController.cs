@@ -1,7 +1,6 @@
-﻿namespace DrugTrade.Web.Areas.Administration.Controllers
+﻿namespace AspNetCoreTemplate.Web.Areas.Administration.Controllers
 {
-    using DrugTrade.Web.ViewModels.Administration.Dashboard;
-
+    using DrugTrade.Web.Areas.Administration.Controllers;
     using Microsoft.AspNetCore.Mvc;
 
     public class DashboardController : AdministrationController
