@@ -10,12 +10,14 @@ namespace DrugTrade.Services.Data
     {
         Task AddAsync(string name, string description, decimal price, int quantity, byte[] image, string pharmacyId, Pharmacy pharmacy);
 
-        Task UpdateAsync(string name, string description, decimal price, int quantity, byte[] image, string pharmacyId, Pharmacy pharmacy);
+        Task UpdateAsync(string id, string name, string description, decimal price, int quantity, byte[] image);
 
         void Delete(string id);
 
         List<Product> GetAllProducts(string id);
 
         List<Product> GetProductsByPharmacy(string id);
+
+        Product GetProductById(string id);
     }
 }
