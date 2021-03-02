@@ -5,14 +5,13 @@
     using System.IO;
     using System.Threading.Tasks;
 
-    using AspNetCoreTemplate.Data;
-    using AspNetCoreTemplate.Data.Common;
-    using AspNetCoreTemplate.Data.Common.Repositories;
-    using AspNetCoreTemplate.Data.Models;
-    using AspNetCoreTemplate.Data.Repositories;
-    using AspNetCoreTemplate.Data.Seeding;
-    using AspNetCoreTemplate.Services.Data;
-    using AspNetCoreTemplate.Services.Messaging;
+    using DrugTrade.Data;
+    using DrugTrade.Data.Common;
+    using DrugTrade.Data.Common.Repositories;
+    using DrugTrade.Data.Models;
+    using DrugTrade.Data.Repositories;
+    using DrugTrade.Data.Seeding;
+    using DrugTrade.Services.Messaging;
 
     using CommandLine;
 
@@ -52,10 +51,6 @@
         {
             var sw = Stopwatch.StartNew();
 
-            var settingsService = serviceProvider.GetService<ISettingsService>();
-            Console.WriteLine($"Count of settings: {settingsService.GetCount()}");
-
-            Console.WriteLine(sw.Elapsed);
             return await Task.FromResult(0);
         }
 
@@ -81,7 +76,6 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
         }
     }
 }

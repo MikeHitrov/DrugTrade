@@ -36,9 +36,6 @@ namespace DrugTrade.Data.Models
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
         [Required]
-        public string Username { get; set; }
-
-        [Required]
         public string Password { get; set; }
 
         [Required]

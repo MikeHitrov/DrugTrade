@@ -76,6 +76,9 @@
             {
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
+
+            builder.Entity<Pharmacy>().HasOne(p => p.Owner).WithMany(o => o.Pharmacies);
+            builder.Entity<Product>().HasOne(p => p.Pharmacy).WithMany(p => p.Products);
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)
