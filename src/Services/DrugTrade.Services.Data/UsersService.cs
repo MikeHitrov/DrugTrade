@@ -24,6 +24,11 @@ namespace DrugTrade.Services.Data
             return this.usersRepository.All().Where(u => u.Id == id).FirstOrDefault();
         }
 
+        public ApplicationUser GerUserByName(string name)
+        {
+            return this.usersRepository.All().Where(u => u.UserName == name).FirstOrDefault();
+        }
+
         public IEnumerable<Pharmacy> GetAllUserPharmacies(string ownerId)
         {
             return this.phrmaciesRepository.All().Where(p => p.OwnerId == ownerId);

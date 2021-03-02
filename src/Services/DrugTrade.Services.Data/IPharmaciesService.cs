@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DrugTrade.Services.Data
 {
-    interface IPharmaciesService
+    public interface IPharmaciesService
     {
         Pharmacy GetPharmacyById(string id);
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DrugTrade.Services.Data
 {
-    interface IProductsService
+    public interface IProductsService
     {
         Task AddAsync(string name, string description, decimal price, int quantity, byte[] image, string pharmacyId, Pharmacy pharmacy);
 

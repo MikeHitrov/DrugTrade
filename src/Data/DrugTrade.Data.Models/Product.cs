@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DrugTradeAPI.Models
 {
-    public class Product : IDeletableEntity
+    public class Product : BaseDeletableModel<string>
     {
         public Product()
         {
@@ -38,7 +38,5 @@ namespace DrugTradeAPI.Models
 
         [Required]
         public Pharmacy Pharmacy { get; set; }
-        public bool IsDeleted { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime? DeletedOn { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

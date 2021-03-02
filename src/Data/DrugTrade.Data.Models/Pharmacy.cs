@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Pharmacy : IDeletableEntity
+    public class Pharmacy : BaseDeletableModel<string>
     {
         public Pharmacy()
         {
@@ -36,7 +36,5 @@
         public ApplicationUser Owner { get; set; }
 
         public IEnumerable<Product> Products { get; set; }
-        public bool IsDeleted { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime? DeletedOn { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

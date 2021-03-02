@@ -6,10 +6,12 @@ using System.Text;
 
 namespace DrugTrade.Services.Data
 {
-    interface IUsersService
+    public interface IUsersService
     {
         IEnumerable<Pharmacy> GetAllUserPharmacies(string ownerId);
 
         ApplicationUser GerUserById(string id);
+
+        ApplicationUser GerUserByName(string name);
     }
 }

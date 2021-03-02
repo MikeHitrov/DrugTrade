@@ -8,6 +8,7 @@
     using DrugTrade.Data.Models;
     using DrugTrade.Data.Repositories;
     using DrugTrade.Data.Seeding;
+    using DrugTrade.Services.Data;
     using DrugTrade.Services.Mapping;
     using DrugTrade.Services.Messaging;
     using DrugTrade.Web.ViewModels;
@@ -63,6 +64,9 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IPharmaciesService, PhramaciesService>();
+            services.AddTransient<IProductsService, ProductsSercice>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

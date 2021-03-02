@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DrugTradeAPI.Models
 {
-    public class Order : IDeletableEntity
+    public class Order : BaseDeletableModel<string>
     {
         public Order()
         {
@@ -35,7 +35,5 @@ namespace DrugTradeAPI.Models
         public IEnumerable<Product> Products { get; set; }
 
         public  DateTime DateCreated { get; set; }
-        public bool IsDeleted { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime? DeletedOn { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
