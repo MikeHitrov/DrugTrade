@@ -13,7 +13,7 @@ namespace DrugTrade.Services.Data
 
         IEnumerable<Pharmacy> GetAllPharmacies();
 
-        void Delete(string id);
+        Task Delete(string id);
 
         Task AddAsync(string name, string address, string contactNumber, string profileImage, string ownerId, ApplicationUser owner);
 

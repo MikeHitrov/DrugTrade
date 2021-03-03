@@ -57,7 +57,7 @@ namespace DrugTrade.Services.Data
             await this.pharmacyRepository.SaveChangesAsync();
         }
 
-        public async void Delete(string id)
+        public async Task Delete(string id)
         {
             Pharmacy pharmacy = GetPharmacyById(id);
 

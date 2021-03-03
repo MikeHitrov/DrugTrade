@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DrugTrade.Services.Data
 {
@@ -17,6 +18,16 @@ namespace DrugTrade.Services.Data
         {
             this.usersRepository = usersRepository;
             this.phrmaciesRepository = phrmaciesRepository;
+        }
+
+        public async Task DeletePharmacy(string username, string pharmacyId)
+        {
+            ApplicationUser user = this.GerUserByName(username);
+
+            user.Pharmacies = user.Pharmacies.ToList().Where(p => p.Id != pharmacyId).ToList();
+
+            this.usersRepository.Update(user);
+            await this.usersRepository.SaveChangesAsync();
         }
 
         public ApplicationUser GerUserById(string id)

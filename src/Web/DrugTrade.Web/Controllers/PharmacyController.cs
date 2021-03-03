@@ -81,11 +81,11 @@ namespace DrugTrade.Web.Controllers
         }
 
         [Authorize]
-        public IActionResult Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
             var meeting = this.pharmaciesService.GetPharmacyById(id);
 
-            this.pharmaciesService.Delete(id);
+            await this.pharmaciesService.Delete(id);
 
             return this.Redirect("/Pharmacy/List");
         }
