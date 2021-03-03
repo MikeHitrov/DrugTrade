@@ -18,5 +18,7 @@ namespace DrugTrade.Services.Data
         Task AddAsync(string name, string address, string contactNumber, string profileImage, string ownerId, ApplicationUser owner);
 
         Task AddProductAsync(Product product, string pharmacyId);
+
+        Task UpdateAsync(string name, string address, string contactNumber, string profileImage, string id);
     }
 }

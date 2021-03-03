@@ -50,5 +50,44 @@ namespace DrugTrade.Web.Controllers
 
             return this.View(viewModel);
         }
+
+        [Authorize]
+        public IActionResult Edit(string id)
+        {
+            var pharmacy = this.pharmaciesService.GetPharmacyById(id);
+
+            var inputModel = new PharmacyInputModel
+            {
+                Id = id,
+                Name = pharmacy.Name,
+                Address = pharmacy.Address,
+                ContactNumber = pharmacy.ContactNumber,
+                ProfileImage = pharmacy.ProfileImage,
+                OwnerId = pharmacy.OwnerId,
+            };
+
+            ViewBag.Data = inputModel;
+            return View();
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Edit(PharmacyInputModel inputModel)
+        {
+            await this.pharmaciesService.UpdateAsync(inputModel.Name, inputModel.Address, inputModel.ContactNumber, inputModel.ProfileImage, inputModel.Id);
+
+            return this.Redirect("/Pharmacy/List");
+        }
+
+        [Authorize]
+        public IActionResult Delete(string id)
+        {
+            var meeting = this.pharmaciesService.GetPharmacyById(id);
+
+            this.pharmaciesService.Delete(id);
+
+            return this.Redirect("/Pharmacy/List");
+        }
     }
 }

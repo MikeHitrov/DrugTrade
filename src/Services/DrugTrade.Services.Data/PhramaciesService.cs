@@ -44,12 +44,25 @@ namespace DrugTrade.Services.Data
             this.pharmacyRepository.SaveChangesAsync();
         }
 
-        public void Delete(string id)
+        public async Task UpdateAsync(string name, string address, string contactNumber, string profileImage, string id)
+        {
+            Pharmacy pharmacy = this.GetPharmacyById(id);
+
+            pharmacy.Name = name;
+            pharmacy.Address = address;
+            pharmacy.ContactNumber = contactNumber;
+            pharmacy.ProfileImage = profileImage;
+
+            this.pharmacyRepository.Update(pharmacy);
+            await this.pharmacyRepository.SaveChangesAsync();
+        }
+
+        public async void Delete(string id)
         {
             Pharmacy pharmacy = GetPharmacyById(id);
 
             this.pharmacyRepository.Delete(pharmacy);
-            this.pharmacyRepository.SaveChangesAsync();
+            await this.pharmacyRepository.SaveChangesAsync();
         }
 
         public IEnumerable<Pharmacy> GetAllPharmacies()

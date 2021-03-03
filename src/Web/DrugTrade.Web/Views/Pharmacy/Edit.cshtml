@@ -1,5 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using DrugTrade.Web.ViewModels.Pharmacies
+@model PharmacyInputModel
+
 @{
+    this.ViewData["Title"] = "Edit Pharmacy";
+    var data = ViewBag.Data;
 }
+
+<h1 class="display-3">Edit Pharmacy</h1>
+
+<form asp-controller="Pharmacy" asp-action="Edit" method="post">
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="Name" value="@data.Name">
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" name="Address" value="@data.Address">
+    </div>
+    <div class="form-group">
+        <label for="contactNumber">Contact number</label>
+        <input type="text" class="form-control" id="contactNumber" name="ContactNumber" value="@data.ContactNumber">
+    </div>
+    <div class="form-group">
+        <label for="profileImage">Pharmacy image url:</label>
+        <input type="text" class="form-control" id="profileImage" name="ProfileImage" value="@data.ProfileImage">
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
