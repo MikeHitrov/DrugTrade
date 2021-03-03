@@ -18,7 +18,7 @@ namespace DrugTrade.Services.Data
             this.pharmacyRepository = pharmacyRepository;
         }
 
-        public async Task AddAsync(string name, string address, string contactNumber, byte[] profileImage, string ownerId, ApplicationUser owner)
+        public async Task AddAsync(string name, string address, string contactNumber, string profileImage, string ownerId, ApplicationUser owner)
         {
             Pharmacy pharmacy = new Pharmacy
             {
@@ -30,8 +30,8 @@ namespace DrugTrade.Services.Data
                 Owner = owner,
             };
 
-            this.pharmacyRepository.AddAsync(pharmacy);
-            this.pharmacyRepository.SaveChangesAsync();
+            await this.pharmacyRepository.AddAsync(pharmacy);
+            await this.pharmacyRepository.SaveChangesAsync();
         }
 
         public async Task AddProductAsync(Product product, string pharmacyId)

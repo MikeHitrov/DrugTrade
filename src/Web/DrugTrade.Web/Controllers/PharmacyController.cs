@@ -39,5 +39,16 @@ namespace DrugTrade.Web.Controllers
             return this.Redirect("/");
         }
 
+        [Authorize]
+        public async Task<IActionResult> List()
+        {
+            var pharmacies = this.pharmaciesService.GetAllPharmacies();
+
+            var userId = this.usersService.GerUserByName(this.User.Identity.Name).Id;
+
+            PharmaciesViewModel viewModel = new PharmaciesViewModel(pharmacies, userId);
+
+            return this.View(viewModel);
+        }
     }
 }

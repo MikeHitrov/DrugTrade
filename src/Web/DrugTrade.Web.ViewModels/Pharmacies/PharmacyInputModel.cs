@@ -19,7 +19,7 @@ namespace DrugTrade.Web.ViewModels.Pharmacies
         public string ContactNumber { get; set; }
 
         [Required]
-        public byte[] ProfileImage { get; set; }
+        public string ProfileImage { get; set; }
 
         [Required]
         public string OwnerId { get; set; }

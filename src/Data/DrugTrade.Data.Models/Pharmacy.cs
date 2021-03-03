@@ -27,7 +27,7 @@
         
         public string ContactNumber { get; set; }
 
-        public byte[] ProfileImage { get; set; }
+        public string ProfileImage { get; set; }
 
         [Required]
         public string OwnerId { get; set; }
