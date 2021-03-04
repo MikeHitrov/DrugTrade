@@ -18,7 +18,7 @@ namespace DrugTrade.Services.Data
             this.productsRepository = productsRepository;
         }
 
-        public async Task AddAsync(string name, string description, decimal price, int quantity, byte[] image, string pharmacyId, Pharmacy pharmacy)
+        public async Task AddAsync(string name, string description, decimal price, int quantity, string image, string pharmacyId, Pharmacy pharmacy)
         {
             var product = new Product
             {
@@ -43,7 +43,7 @@ namespace DrugTrade.Services.Data
             this.productsRepository.SaveChangesAsync();
         }
 
-        public List<Product> GetAllProducts(string id)
+        public List<Product> GetAllProducts()
         {
             return this.productsRepository.All().ToList();
         }
@@ -58,7 +58,7 @@ namespace DrugTrade.Services.Data
             return this.productsRepository.All().Where(p => p.PharmacyId == id).ToList();
         }
 
-        public async Task UpdateAsync(string id, string name, string description, decimal price, int quantity, byte[] image)
+        public async Task UpdateAsync(string id, string name, string description, decimal price, int quantity, string image)
         {
             var product = GetProductById(id);
 

@@ -42,7 +42,7 @@ namespace DrugTrade.Services.Data
 
         public IEnumerable<Pharmacy> GetAllUserPharmacies(string ownerId)
         {
-            return this.phrmaciesRepository.All().Where(p => p.OwnerId == ownerId);
+            return this.phrmaciesRepository.All().Where(p => p.OwnerId == ownerId).ToList();
         }
     }
 }

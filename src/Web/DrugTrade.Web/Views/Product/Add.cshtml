@@ -1,0 +1,43 @@
+﻿@using DrugTrade.Web.ViewModels.Pharmacies
+
+
+@{
+    this.ViewData["Title"] = "Add Product";
+    var pharmacies = ViewBag.Pharmacies;
+}
+
+<h1 class="display-3">Добави нов продукт</h1>
+
+<form asp-controller="Product" asp-action="Add" method="post">
+
+    <div class="form-group">
+        <label for="name">Име</label>
+        <input type="text" class="form-control" id="name" name="Name">
+    </div>
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <input type="text" class="form-control" id="description" name="Description">
+    </div>
+    <div class="form-group">
+        <label for="price">Цена</label>
+        <input type="number" min="0" step="0.01" class="form-control" id="price" name="Price">
+    </div>
+    <div class="form-group">
+        <label for="quantity">Наличност</label>
+        <input type="number" class="form-control" id="quantity" name="Quantity">
+    </div>
+    <div class="form-group">
+        <label for="image">Връзка към снимката:</label>
+        <input type="text" class="form-control" id="image" name="Image" />
+    </div>
+    <div>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="pharmacies" name="Pharmacy">
+            <option selected>Изберете аптека</option>
+            @foreach (var pharmacy in pharmacies)
+            {
+                <option value="@pharmacy.Id">@pharmacy.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Добави</button>
+</form>

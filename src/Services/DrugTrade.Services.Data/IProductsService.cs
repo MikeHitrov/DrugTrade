@@ -8,13 +8,13 @@ namespace DrugTrade.Services.Data
 {
     public interface IProductsService
     {
-        Task AddAsync(string name, string description, decimal price, int quantity, byte[] image, string pharmacyId, Pharmacy pharmacy);
+        Task AddAsync(string name, string description, decimal price, int quantity, string image, string pharmacyId, Pharmacy pharmacy);
 
-        Task UpdateAsync(string id, string name, string description, decimal price, int quantity, byte[] image);
+        Task UpdateAsync(string id, string name, string description, decimal price, int quantity, string image);
 
         void Delete(string id);
 
-        List<Product> GetAllProducts(string id);
+        List<Product> GetAllProducts();
 
         List<Product> GetProductsByPharmacy(string id);
 

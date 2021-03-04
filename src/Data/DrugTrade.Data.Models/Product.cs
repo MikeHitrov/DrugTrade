@@ -31,7 +31,7 @@ namespace DrugTradeAPI.Models
         [Required]
         public int Quantity { get; set; }
 
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
 
         [Required]
         public string PharmacyId { get; set; }
