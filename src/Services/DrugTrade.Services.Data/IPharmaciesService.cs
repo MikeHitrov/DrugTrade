@@ -11,6 +11,8 @@ namespace DrugTrade.Services.Data
     {
         Pharmacy GetPharmacyById(string id);
 
+        Pharmacy GetPharmacyByName(string name);
+
         IEnumerable<Pharmacy> GetAllPharmacies();
 
         Task Delete(string id);

@@ -23,6 +23,9 @@ namespace DrugTradeAPI.Models
         public string Name { get; set; }
 
         [Required]
+        public string Мanifacturer { get; set; }
+
+        [Required]
         public string Description { get; set; }
 
         [Required]

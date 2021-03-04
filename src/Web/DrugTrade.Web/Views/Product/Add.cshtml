@@ -9,7 +9,6 @@
 <h1 class="display-3">Добави нов продукт</h1>
 
 <form asp-controller="Product" asp-action="Add" method="post">
-
     <div class="form-group">
         <label for="name">Име</label>
         <input type="text" class="form-control" id="name" name="Name">
@@ -17,6 +16,10 @@
     <div class="form-group">
         <label for="description">Описание</label>
         <input type="text" class="form-control" id="description" name="Description">
+    </div>
+    <div class="form-group">
+        <label for="manifacturer">Производител</label>
+        <input type="text" class="form-control" id="manifacturer" name="Manifacturer">
     </div>
     <div class="form-group">
         <label for="price">Цена</label>

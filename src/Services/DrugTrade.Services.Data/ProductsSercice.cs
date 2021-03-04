@@ -18,12 +18,13 @@ namespace DrugTrade.Services.Data
             this.productsRepository = productsRepository;
         }
 
-        public async Task AddAsync(string name, string description, decimal price, int quantity, string image, string pharmacyId, Pharmacy pharmacy)
+        public async Task AddAsync(string name, string description, string manifacturer, decimal price, int quantity, string image, string pharmacyId, Pharmacy pharmacy)
         {
             var product = new Product
             {
                Name = name,
-               Description =description,
+               Мanifacturer = manifacturer,
+               Description = description,
                Price = price,
                Quantity = quantity,
                Image = image,
@@ -58,11 +59,12 @@ namespace DrugTrade.Services.Data
             return this.productsRepository.All().Where(p => p.PharmacyId == id).ToList();
         }
 
-        public async Task UpdateAsync(string id, string name, string description, decimal price, int quantity, string image)
+        public async Task UpdateAsync(string id, string name, string description, string manifacturer, decimal price, int quantity, string image)
         {
             var product = GetProductById(id);
 
             product.Name = name;
+            product.Мanifacturer = manifacturer;
             product.Description = description;
             product.Price = price;
             product.Quantity = quantity;

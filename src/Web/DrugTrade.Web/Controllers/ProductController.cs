@@ -38,7 +38,7 @@ namespace DrugTrade.Web.Controllers
         {
             var pharmacy = inputModel.Pharmacy;
 
-            await this.productsService.AddAsync(inputModel.Name, inputModel.Description, inputModel.Price, inputModel.Quantity, inputModel.Image, pharmacy, this.pharmaciesService.GetPharmacyById(pharmacy));
+            await this.productsService.AddAsync(inputModel.Name, inputModel.Description, inputModel.Manifacturer, inputModel.Price, inputModel.Quantity, inputModel.Image, pharmacy, this.pharmaciesService.GetPharmacyById(pharmacy));
 
             return this.Redirect("/");
         }
@@ -69,6 +69,7 @@ namespace DrugTrade.Web.Controllers
             {
                 Id = id,
                 Name = product.Name,
+                Manifacturer = product.Мanifacturer,
                 Description = product.Description,
                 Price = product.Price,
                 Quantity = product.Quantity,
@@ -83,7 +84,7 @@ namespace DrugTrade.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(ProductInputModel inputModel)
         {
-            await this.productsService.UpdateAsync(inputModel.Id, inputModel.Name, inputModel.Description, inputModel.Price, inputModel.Quantity, inputModel.Image);
+            await this.productsService.UpdateAsync(inputModel.Id, inputModel.Name, inputModel.Description, inputModel.Manifacturer, inputModel.Price, inputModel.Quantity, inputModel.Image);
 
             return this.Redirect("/Product/List");
         }
@@ -94,6 +95,33 @@ namespace DrugTrade.Web.Controllers
             var meeting = this.productsService.GetProductById(id);
 
             this.productsService.Delete(id);
+
+            return this.Redirect("/Product/List");
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Filter(string pharmacyName)
+        {
+            var pharmacyId = this.pharmaciesService.GetPharmacyByName(pharmacyName).Id;
+            var products = this.productsService.GetProductsByPharmacy(pharmacyId);
+
+            var userId = this.usersService.GerUserByName(this.User.Identity.Name).Id;
+
+            foreach (var product in products)
+            {
+                product.Pharmacy = this.pharmaciesService.GetPharmacyById(product.PharmacyId);
+            }
+
+            ProductViewModel viewModel = new ProductViewModel(products, userId, "");
+
+            return this.View(viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Filter(ProductInputModel inputModel)
+        {
+            await this.productsService.UpdateAsync(inputModel.Id, inputModel.Name, inputModel.Description, inputModel.Manifacturer, inputModel.Price, inputModel.Quantity, inputModel.Image);
 
             return this.Redirect("/Product/List");
         }

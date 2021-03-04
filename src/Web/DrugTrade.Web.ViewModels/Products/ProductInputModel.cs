@@ -17,6 +17,9 @@ namespace DrugTrade.Web.ViewModels.Products
         public string Description { get; set; }
 
         [Required]
+        public string Manifacturer { get; set; }
+
+        [Required]
         public decimal Price { get; set; }
 
         [Required]

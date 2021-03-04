@@ -5,7 +5,14 @@
     ViewData["Title"] = "All Products";
 }
 
-<h1 class="display-3">Всички продукти</h1>
+<h1 class="display-3">Всички продукти от аптека</h1>
+
+<form asp-controller="Product" asp-action="Filter" method="post">
+    <label for="pharmacyName">Име на аптеката</label>
+    <input type="text" class="form-control" id="pharmacyName" name="PharmacyName">
+    <button type="submit" class="btn btn-primary">Промени</button>
+</form>
+
 @if (Model.Products.Any())
 {
     <div class="container">
@@ -23,8 +30,8 @@
                         <p>Предлагано от -> @product.Pharmacy.Name</p>
                         @if (product.Pharmacy.OwnerId == Model.UserId)
                         {
-                            <button class="styledButton">@Html.ActionLink("Промени", "Edit", new { id = product.Id })</button>
-                            <button class="styledButton">@Html.ActionLink("Изтрий", "Delete", new { id = product.Id })</button>
+                            <button class="styledButton">@Html.ActionLink("Edit", "Edit", new { id = product.Id })</button>
+                            <button class="styledButton">@Html.ActionLink("Delete", "Delete", new { id = product.Id })</button>
                         }
                     </article>
                 </div>

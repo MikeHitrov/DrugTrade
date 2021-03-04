@@ -12,10 +12,12 @@ namespace DrugTrade.Services.Data
     public class PhramaciesService : IPharmaciesService
     {
         private readonly IDeletableEntityRepository<Pharmacy> pharmacyRepository;
+        private readonly IDeletableEntityRepository<Product> productRepository;
 
-        public PhramaciesService(IDeletableEntityRepository<Pharmacy> pharmacyRepository)
+        public PhramaciesService(IDeletableEntityRepository<Pharmacy> pharmacyRepository, IDeletableEntityRepository<Product> productRepository)
         {
             this.pharmacyRepository = pharmacyRepository;
+            this.productRepository = productRepository;
         }
 
         public async Task AddAsync(string name, string address, string contactNumber, string profileImage, string ownerId, ApplicationUser owner)
@@ -61,6 +63,13 @@ namespace DrugTrade.Services.Data
         {
             Pharmacy pharmacy = GetPharmacyById(id);
 
+            var products = pharmacy.Products;
+
+            foreach (var product in products)
+            {
+                this.productRepository.Delete(product);
+            }
+
             this.pharmacyRepository.Delete(pharmacy);
             await this.pharmacyRepository.SaveChangesAsync();
         }
@@ -73,6 +82,11 @@ namespace DrugTrade.Services.Data
         public Pharmacy GetPharmacyById(string id)
         {
             return this.pharmacyRepository.All().Where(p => p.Id == id).FirstOrDefault();
+        }
+
+        public Pharmacy GetPharmacyByName(string name)
+        {
+            return this.pharmacyRepository.All().Where(p => p.Name == name).FirstOrDefault();
         }
     }
 }
