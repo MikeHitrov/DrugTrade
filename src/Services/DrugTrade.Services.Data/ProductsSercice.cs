@@ -71,7 +71,7 @@ namespace DrugTrade.Services.Data
             product.Image = image;
 
             this.productsRepository.Update(product);
-            this.productsRepository.SaveChangesAsync();
+            await this.productsRepository.SaveChangesAsync();
         }
     }
 }
